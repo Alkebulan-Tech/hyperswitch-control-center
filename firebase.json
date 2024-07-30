@@ -1,12 +1,12 @@
 {
   "hosting": {
     "site": "kemetx-f8e5b-b96cc",
-    "public": "public",
+    "public": "/",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
       {
         "source": "**",
-        "destination": "/public/index.html"
+        "destination": "dist/server"
       }
     ]
   }
