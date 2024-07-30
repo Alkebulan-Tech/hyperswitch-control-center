@@ -72,6 +72,7 @@
     "csvjson-json2csv": "^1.0.3",
     "dayjs": "^1.10.4",
     "final-form": "^4.20.4",
+    "firebase": "^10.12.4",
     "framer-motion": "^10.12.16",
     "highcharts": "^9.3.0",
     "highcharts-react-official": "^3.1.0",
