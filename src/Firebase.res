@@ -17,7 +17,7 @@ let config = Js.Dict.fromArray([
   ("storageBucket", "kemetx-f8e5b.appspot.com"),
   ("messagingSenderId", "667699489962"),
   ("appId", "1:667699489962:web:249e189e0f410c109f74d3"),
-  ("measurementId", "G-F10KGKG8GT")
+  ("measurementId", "G-F10KGKG8GT"),
 ])
 
 let app = initializeApp(config)
