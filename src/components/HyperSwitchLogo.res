@@ -27,7 +27,7 @@ let make = (
   let iconImagePath = switch logoVariant {
   | CommonAuthTypes.Icon => `/assets/${iconFolder}/hyperswitchLogoIcon.svg`
   | CommonAuthTypes.Text => `/assets/${iconFolder}/hyperswitchLogoText.svg`
-  | CommonAuthTypes.IconWithText => `/assets/${iconFolder}/hyperswitchLogoIconWithText.png`
+  | CommonAuthTypes.IconWithText => `/assets/${iconFolder}/hyperswitchLogoIconWithText.svg`
   | CommonAuthTypes.IconWithURL => iconUrl->Belt.Option.getWithDefault("")
   }
 
