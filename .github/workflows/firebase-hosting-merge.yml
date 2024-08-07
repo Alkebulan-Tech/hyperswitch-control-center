@@ -34,4 +34,6 @@ jobs:
           hostingRegion: us-central1
     env:
       FIREBASE_CLI_EXPERIMENTS: webframeworks
+      apiBaseUrl: https://sandbox.hyperswitch.io
+      sdkBaseUrl: https://sandbox.hyperswitch.io/payments
       #FIREBASE_FRAMEWORKS_BUILD_TARGET: "mifosx-web-app:build:development"
