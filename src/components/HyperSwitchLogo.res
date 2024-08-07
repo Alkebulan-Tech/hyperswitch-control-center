@@ -1,11 +1,14 @@
-type theme = Light | Dark
+type theme =
+  | Light
+  | Dark
 
 @react.component
 let make = (
   ~logoClass="",
   ~handleClick=?,
   ~logoVariant=CommonAuthTypes.IconWithText,
-  ~logoHeight="h-6",
+  ~logoHeight="100px",
+  ~logoWidth="100px",
   ~theme=Dark,
   ~iconUrl=None,
 ) => {
@@ -22,13 +25,13 @@ let make = (
   }
 
   let iconImagePath = switch logoVariant {
-  | Icon => `/assets/${iconFolder}/hyperswitchLogoIcon.svg`
-  | Text => `/assets/${iconFolder}/hyperswitchLogoText.svg`
-  | IconWithText => `/assets/${iconFolder}/hyperswitchLogoIconWithText.svg`
-  | IconWithURL => `${iconUrl->Option.getOr("")}`
+  | CommonAuthTypes.Icon => `/assets/${iconFolder}/hyperswitchLogoIcon.svg`
+  | CommonAuthTypes.Text => `/assets/${iconFolder}/hyperswitchLogoText.svg`
+  | CommonAuthTypes.IconWithText => `/assets/${iconFolder}/hyperswitchLogoIconWithText.svg`
+  | CommonAuthTypes.IconWithURL => iconUrl->Belt.Option.getWithDefault("")
   }
 
-  <div className={`${logoClass}`} onClick={handleClickEvent}>
-    <img alt="image" src=iconImagePath className=logoHeight />
+  <div className={logoClass} onClick={handleClickEvent}>
+    <img src=iconImagePath className=logoClass style={{width: logoWidth, height: logoHeight}} />
   </div>
 }
