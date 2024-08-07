@@ -22,7 +22,7 @@ jobs:
         run: npm install --force
 
       - name: "Build"
-        run: npm run build:test
+        run: npm run re:build
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
