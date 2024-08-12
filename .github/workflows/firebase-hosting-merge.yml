@@ -9,22 +9,24 @@ on:
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    container: node:20
     steps:
       - name: "Checkout repository"
         uses: actions/checkout@v4
 
       - name: "Setup node"
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: "Install dependencies"
-        run: npm install --force
+        run: yarn install --force
 
       - name: "Build"
         run: npm run build:test
 
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: "Serve the application"
+        run: |
+          /bin/bash -c "yarn serve" &
+          sleep 10  # Wait for the server to start
+
+      - name: "Deploy to Firebase Hosting"
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEMETX_F8E5B }}
@@ -36,4 +38,3 @@ jobs:
       FIREBASE_CLI_EXPERIMENTS: webframeworks
       apiBaseUrl: https://piglet-engaging-mako.ngrok-free.app
       sdkBaseUrl: https://piglet-engaging-mako.ngrok-free.app/payments
-      #FIREBASE_FRAMEWORKS_BUILD_TARGET: "mifosx-web-app:build:development"
