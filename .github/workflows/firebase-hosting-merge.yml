@@ -13,21 +13,28 @@ jobs:
       - name: "Checkout repository"
         uses: actions/checkout@v4
 
-      - name: "Setup node"
+      - name: "Setup Rust"
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          target: wasm32-unknown-unknown
+
+      - name: "Build Rust to WebAssembly"
+        run: cargo build --target wasm32-unknown-unknown --release
+
+      - name: "Move Wasm Files to Hosting Directory"
+        run: |
+          mkdir -p public/wasm
+          cp target/wasm32-unknown-unknown/release/*.wasm public/wasm/
+          echo '<html><body><script type="module">import("./wasm/your_project_name_bg.wasm");</script></body></html>' > public/index.html
+
+      - name: "Install Node.js"
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: "Install dependencies"
-        run: npm install --force
-
-      - name: "Build"
-        run: npm run build:test
-
-      - name: "Serve the application"
-        run: |
-          /bin/bash -c "yarn serve" &
-          sleep 10  # Adjust sleep time based on your app's startup time
+      - name: "Install Firebase Tools"
+        run: npm install -g firebase-tools
 
       - name: "Deploy to Firebase Hosting"
         uses: FirebaseExtended/action-hosting-deploy@v0
