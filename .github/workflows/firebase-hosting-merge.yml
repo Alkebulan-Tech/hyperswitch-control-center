@@ -31,7 +31,7 @@ jobs:
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEMETX_F8E5B }}
-          #channelId: live
+          channelId: live
           projectId: kemetx-f8e5b
           site: kemetx-f8e5b-b96cc
           hostingRegion: us-central1
