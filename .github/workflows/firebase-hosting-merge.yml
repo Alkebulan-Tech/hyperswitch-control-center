@@ -24,8 +24,8 @@ jobs:
       - name: "Build"
         run: npm run re:clean && npm run re:build && npm run build:prod
         env:
-          apiBaseUrl: https://piglet-engaging-mako.ngrok-free.app
-          sdkBaseUrl: https://sandbox.hyperswitch.io/payments
+          api_url: https://piglet-engaging-mako.ngrok-free.app
+          sdk_url: https://sandbox.hyperswitch.io/payments
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
