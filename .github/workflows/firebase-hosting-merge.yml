@@ -23,9 +23,6 @@ jobs:
 
       - name: "Build"
         run: npm run re:clean && npm run re:build && npm run build:prod
-        env:
-          api_url: https://piglet-engaging-mako.ngrok-free.app
-          sdk_url: https://sandbox.hyperswitch.io/payments
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
@@ -41,7 +38,6 @@ jobs:
           messagingSenderId: 667699489962
           appId: 1:667699489962:web:249e189e0f410c109f74d3
           measurementId: G-F10KGKG8GT
-
     env:
       FIREBASE_CLI_EXPERIMENTS: webframeworks
       #FIREBASE_FRAMEWORKS_BUILD_TARGET: "mifosx-web-app:build:development"
