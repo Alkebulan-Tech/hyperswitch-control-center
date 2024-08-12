@@ -20,7 +20,7 @@ jobs:
           target: wasm32-unknown-unknown
 
       - name: "Build Rust to WebAssembly"
-        working-directory: config/
+        working-directory: ../../config/
         run: cargo build --target wasm32-unknown-unknown --release
 
       - name: "Move Wasm Files to Hosting Directory"
