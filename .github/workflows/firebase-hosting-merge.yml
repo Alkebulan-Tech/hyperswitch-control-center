@@ -22,7 +22,7 @@ jobs:
         run: npm install --force
 
       - name: "Build"
-        run: npm run re:clean && npm run re:build
+        run: npm run re:clean && npm run re:build && npm run build:prod
         env:
           apiBaseUrl: https://piglet-engaging-mako.ngrok-free.app
           sdkBaseUrl: https://sandbox.hyperswitch.io/payments
