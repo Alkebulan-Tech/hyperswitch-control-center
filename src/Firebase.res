@@ -12,9 +12,9 @@ external getAnalytics: Js.t<{.}> => Js.t<{.}> = "getAnalytics"
 // Define the config object using Js.Dict
 let config = Js.Dict.fromArray([
   ("apiKey", "AIzaSyBrUTDPRT3FNJPNrz0V_xWQuL1kTjKZUyE"),
-  ("authDomain", "kemetx-f8e5b.firebaseapp.com"),
+  ("authDomain", "kemetx-f8e5b-b96cc.web.app"),
   ("projectId", "kemetx-f8e5b"),
-  ("storageBucket", "kemetx-f8e5b.appspot.com"),
+  ("storageBucket", "kemetx-f8e5b-b96cc.appspot.com"),
   ("messagingSenderId", "667699489962"),
   ("appId", "1:667699489962:web:249e189e0f410c109f74d3"),
   ("measurementId", "G-F10KGKG8GT"),
