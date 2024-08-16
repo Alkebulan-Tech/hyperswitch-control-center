@@ -7,9 +7,7 @@ const { execSync } = require("child_process");
 
 process.env["NODE_ENV"] = "production";
 
-const currentBranch = execSync("git rev-parse --abbrev-ref HEAD")
-  .toString()
-  .trim();
+var currentBranch = "hyperswitch";
 
 const mergeProd = (dashboardAppName, env) => {
   console.log("Building", dashboardAppName);
