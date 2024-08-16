@@ -5,6 +5,12 @@
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "spa": {
       "historyModeRewrite": true
-    }
+    },
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
   }
 }
