@@ -20,8 +20,7 @@
     "postinstall": "git config core.hooksPath .githooks && chmod +x .githooks/commit-msg",
     "cy:open": "sh cypress/start_hyperswitch.sh && cypress open",
     "cy:run": "sh cypress/start_hyperswitch.sh && cypress run",
-    "lint:hooks": "eslint src/ --max-warnings 0",
-    "install": "yarn install --immutable"
+    "lint:hooks": "eslint src/ --max-warnings 0"
   },
   "husky": {
     "hooks": {
