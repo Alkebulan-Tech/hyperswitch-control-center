@@ -2,23 +2,22 @@ const path = require("path");
 const webpack = require("webpack");
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common.js");
-const config = import("./src/server/config.mjs");
 
-const appName = process.env.appName;
+const appName = process.env.appName || "hyperswitch"; // Ensure appName is defined
 const integ = process.env.integ;
 
 let port = 9000;
 let proxy = {};
 
 let configMiddleware = (req, res, next) => {
-  if (req.path.includes("/config/merchant-config") && req.method == "GET") {
+  if (req.path.includes("/config/") && req.method === "GET") {
     let { domain = "default" } = req.query;
-    config
+    import("./src/server/config.mjs")
       .then((result) => {
         result.configHandler(req, res, false, domain);
       })
       .catch((error) => {
-        console.log(error, "error");
+        console.error("Error in config middleware:", error);
         res.writeHead(500, { "Content-Type": "text/plain" });
         res.end("Internal Server Error");
       });
