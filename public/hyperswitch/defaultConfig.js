@@ -5,6 +5,6 @@ window._env_ = {
     sidebar_color: "",
   },
   endpoints: {
-    api_url: "",
+    api_url: "https://piglet-engaging-mako.ngrok-free.app",
   },
 };
